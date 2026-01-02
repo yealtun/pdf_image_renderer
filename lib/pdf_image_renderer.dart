@@ -28,7 +28,7 @@ class PdfImageRenderer {
 
   String get path => _path;
 
-  /// Open the PDF by the path this [PdfImageRendererPdf] was initialized with.
+  /// Open the PDF by the path this [PdfImageRenderer] was initialized with.
   ///
   /// Must be closed with the [close] method to free up memory.
   ///
@@ -75,7 +75,7 @@ class PdfImageRenderer {
 
     if (Platform.isAndroid && _pages.isNotEmpty) {
       throw StateError(
-          'The native Android PDF renderer only allows one open page for each PdfImageRendererPdf instance. Please close the open page first.');
+          'The native Android PDF renderer only allows one open page for each PdfImageRenderer instance. Please close the open page first.');
     }
 
     await PdfImageRendererPlatform.instance.openPdfPage(pdf: _id!, page: pageIndex);
@@ -177,7 +177,7 @@ class PdfImageRenderer {
   }
 }
 
-/// Holds the [width] and [height] of a [PdfImageRendererPdf].
+/// Holds the [width] and [height] of a [PdfImageRenderer] page.
 class PdfImageRendererPageSize {
   /// Width of the page.
   final int width;
